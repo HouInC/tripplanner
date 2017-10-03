@@ -68,8 +68,10 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 const mapboxgl = __webpack_require__(1);
-
+const buildMarker = __webpack_require__(3);
 mapboxgl.accessToken = 'pk.eyJ1IjoiY3BlcmFsdGEyNiIsImEiOiJjajhiczlsYWowMTk5MndwN3kwZGRjMDd0In0.LA09kf83yEMOBejDj7zcaA';
+
+
 
 const map = new mapboxgl.Map({
   container: "map",
@@ -77,6 +79,10 @@ const map = new mapboxgl.Map({
   zoom: 12, // starting zoom
   style: "mapbox://styles/mapbox/streets-v10" // mapbox has lots of different map styles available.
 });
+
+const marker=buildMarker("activity", [-74.009151, 40.705086]);
+marker.addTo(map);
+
 
 
 /***/ }),
@@ -572,6 +578,31 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const mapboxgl = __webpack_require__(1);
+
+const iconURL = {
+	activity : "http://i.imgur.com/WbMOfMl.png",
+	hotel : 'http://i.imgur.com/D9574Cu.png',
+	restaurant : 'http://i.imgur.com/cqR6pUI.png'
+}
+
+
+BuildMarker=(type,coord)=>{
+	let markerDomEl = document.createElement('div');
+	markerDomEl.style.width = "32px";
+	markerDomEl.style.height = "39px";
+	markerDomEl.style.backgroundImage = `url(${iconURL[type]})`;
+	return new mapboxgl.Marker(markerDomEl).setLngLat(coord);
+}
+
+
+
+module.exports = BuildMarker;
 
 /***/ })
 /******/ ]);

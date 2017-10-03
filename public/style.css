@@ -7,3 +7,46 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #C1B5AD;
 }
+
+#map {
+  height: 100vh;
+  width: 70%;
+  display: inline;
+}
+
+#menu {
+
+}
+
+#page{
+	display: flex;
+	flex-grow: 1;
+}
+
+/*#addMarker{
+	background-color: green; 
+	display: block;
+	flex-grow: 2;
+}
+
+#showMarker{
+	background-color: red;
+	display: block;
+	flex-grow: 2;
+}*/
+
+
+header{
+	
+	background-color : grey;
+	margin: 0;
+	padding: 0;
+	opacity: 0.3;
+
+}
+
+header h1 {
+	margin: 0;
+	padding: 0;
+	color: blue;
+}
